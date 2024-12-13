@@ -1,21 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* globals.css */
+/* globals.css */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+    font-family: 'SuperaGothic';
+    src: url('/fonts/SuperaGothic-Regular.otf') format('opentype'),
+         url('/fonts/SuperaGothic-Bold.otf') format('opentype'),
+         url('/fonts/SuperaGothic-BlackItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  
+  @font-face {
+    font-family: 'SuperaGothic';
+    src: url('/fonts/SuperaGothic-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'SuperaGothic';
+    src: url('/fonts/SuperaGothic-BlackItalic.otf') format('opentype');
+    font-weight: 900; /* You can adjust to match the actual weight */
+    font-style: italic;
+  }
+  
+  /* Apply font globally */
+  body {
+    font-family: 'SuperaGothic', sans-serif;
+  }
+  
+  /* Example of using different weights or styles */
+  h1 {
+    font-family: 'SuperaGothic', sans-serif;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-family: 'SuperaGothic', sans-serif;
+    font-style: italic;
+  }
+  
+  
