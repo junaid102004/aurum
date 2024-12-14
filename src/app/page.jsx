@@ -13,8 +13,9 @@ import Footer from "./components/footer";
 import BrochureSection from "./components/brouchureSection";
 import AboutUs from "./about-us/page";
 import KeyHighlights from "./components/highlights";
-import Banner from "./components/PoductBanner";
+// import Banner from "./components/PoductBanner";
 import ProductsSection from "./components/ProductSection.jsx";
+import ChatIcon from "./components/icon/ChatIcon";
 
 const Page = () => {
   const [isVideoSection, setIsVideoSection] = useState(false); // State to control navbar transparency
@@ -27,14 +28,16 @@ const Page = () => {
       {/* Video background that triggers navbar transparency */}
       <VideoBackground setIsVideoSection={setIsVideoSection} />
 
-      <main className="relative z-30 text-white py-10 px-5">
+      {/* <main className="relative z-30 text-white py-10 px-5">
         <h1>Welcome to Our Website!</h1>
         <p>Here is some content on the homepage.</p>
-      </main>
+      </main> */}
       <AboutUs />
+      <ChatIcon/>
       <BrochureSection />
       <KeyHighlights />
       <ProductsSection/>
+      
       {/* Footer */}
       <Footer />
     </div>

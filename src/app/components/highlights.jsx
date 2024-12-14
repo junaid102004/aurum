@@ -15,13 +15,25 @@ export default function KeyHighlights() {
       description: "A magnificent night view of the Aurum gate, showcasing modern architecture."
     },
     {
-      src: "/uploads/image.webp",
+      src: "/uploads/high.png",
       alt: "Garden View",
       title: "Garden View",
       description: "A serene garden space perfect for relaxation and family time."
     },
     {
-      src: "/uploads/image.png",
+      src: "/uploads/high2.png",
+      alt: "Pool View",
+      title: "Pool View",
+      description: "A luxurious poolside area designed for leisure and comfort."
+    },
+    {
+      src: "/uploads/high3.png",
+      alt: "Pool View",
+      title: "Pool View",
+      description: "A luxurious poolside area designed for leisure and comfort."
+    },
+    {
+      src: "/uploads/high4.png",
       alt: "Pool View",
       title: "Pool View",
       description: "A luxurious poolside area designed for leisure and comfort."

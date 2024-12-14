@@ -23,7 +23,7 @@ export default function BrochureSection() {
         <div className="flex flex-col items-start w-full sm:w-1/2 lg:w-1/3">
           <h3 className="text-left sm:text-center cmd:text-left font-supera500 text-[27px] cxs:text-[32px] sm:text-[30px] lg:text-[35px] leading-[0.9] text-[#FFFFFF] uppercase flex flex-col items-start gap-x-2 sm:block">
             The pride of
-            <span className="tracking-wide sm:tracking-normal font-supera700 text-[60px] sm:text-[65px] lg:text-[80px] xl:text-[85px] text-transparent bg-clip-text bg-backgroud-theme-local bg-bottom"> Mohali</span>
+            <span className="bg-[url('/uploads/bgimage.png')] tracking-wide sm:tracking-normal font-supera700 text-[60px] sm:text-[65px] lg:text-[80px] xl:text-[85px] text-transparent bg-clip-text bg-backgroud-theme-local bg-bottom"> Mohali</span>
           </h3>
           <p className="mt-2 font-supera500 text-[15px] bxxs:text-[16px] xs:text-[18px] text-[#fff] capitalize text-center cmd:text-left">
             on international airport road, mohali

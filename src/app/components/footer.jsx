@@ -7,8 +7,35 @@ const Footer = () => {
         style={{ backgroundImage: "url('/uploads/AURUM-GATE-NIGHT-HIRES.png')" }}
         className="w-full"
       >
+        
         <div className="w-full h-full bg-[#000000d7]">
+          
           <div className="lg:container mx-auto pt-[35px]">
+          <a href="/" className="block mx-auto relative w-[300px] sm:w-[350px] h-[100px]">
+
+<div className="flex justify-between items-center w-full">
+  <Image
+    alt="footer-logo"
+    loading="lazy"
+    layout="responsive"  // Makes the image responsive
+    width={150}
+    height={40}
+    decoding="async"
+    className="w-[48%] h-full object-contain"
+    src="/uploads/image.png" // Correct image path
+  />
+  <Image
+    alt="footer-logo"
+    loading="lazy"
+    layout="responsive"  // Makes the image responsive
+    width={150}
+    height={40}
+    className="w-[48%] h-full object-contain"
+    src="/uploads/image.png" // Correct image path
+  />
+</div>
+</a>
+
             {/* Logo - Two images side by side */}
           
             <hr className="max-w-[1257px] mx-5 lg:mx-auto border-[#787777] mt-[35px] mb-[25px]" />
@@ -96,31 +123,7 @@ const Footer = () => {
               </div>
               <hr className="max-w-[1257px] mx-5 lg:mx-auto border-[#787777] mt-[35px] mb-[25px]" />
 
-              <a href="/" className="block mx-auto relative w-[300px] sm:w-[350px] h-[100px]">
-
-              <div className="flex justify-between items-center w-full">
-                <Image
-                  alt="footer-logo"
-                  loading="lazy"
-                  layout="responsive"  // Makes the image responsive
-                  width={150}
-                  height={40}
-                  decoding="async"
-                  className="w-[48%] h-full object-contain"
-                  src="/uploads/image.png" // Correct image path
-                />
-                <Image
-                  alt="footer-logo"
-                  loading="lazy"
-                  layout="responsive"  // Makes the image responsive
-                  width={150}
-                  height={40}
-                  className="w-[48%] h-full object-contain"
-                  src="/uploads/image.png" // Correct image path
-                />
-              </div>
-            </a>
-
+             
               {/* Copyright */}
               <div className="flex justify-center text-white text-[15px]">
                 <p>© 2024 All Rights Reserved</p>

@@ -4,43 +4,38 @@
 /* globals.css */
 /* globals.css */
 
-@font-face {
+  @font-face {
     font-family: 'SuperaGothic';
-    src: url('/fonts/SuperaGothic-Regular.otf') format('opentype'),
-         url('/fonts/SuperaGothic-Bold.otf') format('opentype'),
-         url('/fonts/SuperaGothic-BlackItalic.otf') format('opentype');
-    font-weight: normal;
+    src: url('/fonts/SuperaGothic-Regular.otf') format('opentype');
+    font-weight: 400;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'SuperaGothic';
     src: url('/fonts/SuperaGothic-Bold.otf') format('opentype');
-    font-weight: bold;
+    font-weight: 700;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'SuperaGothic';
     src: url('/fonts/SuperaGothic-BlackItalic.otf') format('opentype');
-    font-weight: 900; /* You can adjust to match the actual weight */
+    font-weight: 900;
     font-style: italic;
   }
+  
   
   /* Apply font globally */
   body {
     font-family: 'SuperaGothic', sans-serif;
-  }
-  
-  /* Example of using different weights or styles */
-  h1 {
-    font-family: 'SuperaGothic', sans-serif;
-    font-weight: bold;
-  }
-  
-  h2 {
-    font-family: 'SuperaGothic', sans-serif;
+}
+
+/* 
+/* h2 {
     font-style: italic;
+} */
+
+  html {
+    scroll-behavior: smooth;
   }
-  
-  
