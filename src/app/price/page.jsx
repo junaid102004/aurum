@@ -33,7 +33,7 @@ const page = () =>
     <div>
       <Navbar/>
    
-      <NavbarBottomLinks/>
+      {/* <NavbarBottomLinks/> */}
            <div className="section-gap scroll-mt-28 sm:scroll-mt-20">
           {/* Large background container visible only on screens larger than 'sm' */}
           <div className="hidden sm:block w-full h-[85vh] bg-cover bg-bottom bg-no-repeat" style={{ backgroundImage: 'url(/uploads/high.png)' }}>

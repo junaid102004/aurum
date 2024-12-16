@@ -11,10 +11,11 @@ import ChatIcon from "./components/icon/ChatIcon";
 import MobileNavbar from "./components/MobileNav/MobileNavbar";
 import EnquiryForm from "./components/EnquiryForm";
 import TestimonialSection from "./components/Testimonials";
-const Page = () => {
-  const [isVideoSection, setIsVideoSection] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+import { usePathname } from "next/navigation";
 
+const Page = () => {
+  const pathname = usePathname();
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const updateWindowSize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -31,14 +32,15 @@ const Page = () => {
   return (
     <div>
       {/* Conditionally render the MobileNavbar on mobile */}
-      {isMobile ? (
+      {/* {isMobile ? (
         <MobileNavbar isVideoSection={isVideoSection} />
       ) : (
         <Navbar isVideoSection={isVideoSection} />
-      )}
-
+      )} */}
+{/* <Navbar isVideoSection={isVideoSection}/> */}
       {/* Video background that triggers navbar transparency */}
-      <VideoBackground setIsVideoSection={setIsVideoSection} />
+      < Navbar/>
+      <VideoBackground />
 
       <AboutUs />
       <ChatIcon />
@@ -46,7 +48,6 @@ const Page = () => {
       <KeyHighlights />
       <ProductsSection />
       <EnquiryForm/>
-<TestimonialSection/>
       {/* Footer */}
       <Footer />
     </div>

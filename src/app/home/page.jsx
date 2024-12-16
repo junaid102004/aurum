@@ -26,8 +26,7 @@ const Page = () => {
       <AboutUs />
       <BrochureSection />
       <KeyHighlights />
-      {/* Footer */}
-      <Footer />
+
     </div>
   );
 };

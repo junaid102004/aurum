@@ -87,7 +87,7 @@ const StatisticsSection = () => {
       id="statistics-section"
       className="bg-[#F0F0F0]"
       style={{
-        backgroundImage: "url('/images/staticbgImage.webp')",
+        backgroundImage: "url('/uploads/image7.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -102,7 +102,7 @@ const StatisticsSection = () => {
               <div className="w-[35px] xs:w-[40px] sm:w-[50px] md:w-[35px] cmd:w-[40px] lg:w-[50px] xl:w-[58px] h-[38px] xs:h-[44px] sm:h-[53px] md:h-[40px] cmd:h-[44px] lg:h-[53px] xl:h-[61px] relative">
                 <Image
                   alt="Icon 1"
-                  src="/_next/static/media/statics-icon1.740aa650.svg"
+                  src="/uploads/Vector1.png"
                   width={150}
                   layout="responsive"  // Makes the image responsive
                   height={40}
@@ -129,7 +129,7 @@ const StatisticsSection = () => {
                   width={150}
                   layout="responsive"  // Makes the image responsive
                   height={40}
-                  src="/_next/static/media/statics-icon2.1c319a9e.svg"
+                  src="/uploads/Vector2.png"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -153,7 +153,7 @@ const StatisticsSection = () => {
                   width={150}
                   height={40}
                   layout="responsive"  // Makes the image responsive
-                  src="/_next/static/media/statics-icon3.1c319a9e.svg"
+                  src="/uploads/Vector3.png"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -178,7 +178,7 @@ const StatisticsSection = () => {
                   width={150}
                   height={40}
                   layout="responsive"  // Makes the image responsive
-                  src="/_next/static/media/statics-icon4.1c319a9e.svg"
+                  src="/uploads/Vector4.png"
                   className="w-full h-full object-contain"
                 />
               </div>

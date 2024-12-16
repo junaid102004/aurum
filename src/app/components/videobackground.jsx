@@ -4,16 +4,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 
-const VideoBackground = ({ setIsVideoSection }) => {
-  useEffect(() => {
-    // Notify Navbar when video section is in view
-    setIsVideoSection(true);
-
-    // Cleanup on unmount to reset the state
-    return () => {
-      setIsVideoSection(false);
-    };
-  }, [setIsVideoSection]);
+const VideoBackground = () => {
 
   return (
     <div className="relative w-full h-screen">

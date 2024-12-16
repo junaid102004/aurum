@@ -4,100 +4,122 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import NavbarBottomLinks from './Payment/NavBottoms'; // Import NavbarBottomLinks component
 
-const Navbar = ({ isVideoSection }) => {
-  const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isTransparent, setIsTransparent] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+const Navbar = () => {
+  const pathname = usePathname();  // Get current pathname from Next.js app router
+  const [isOpen, setIsOpen] = useState(false); // Mobile menu state
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Dropdown menu state
+  const [isTransparent, setIsTransparent] = useState(false); // Transparency state
+  const [areSubmenusVisible, setAreSubmenusVisible] = useState(false); // State for showing all submenus
+  const [lastScrollY, setLastScrollY] = useState(0); // Keep track of last scroll position
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true); // Track navbar visibility
 
   // Handle mobile menu toggle
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    setAreSubmenusVisible(!areSubmenusVisible);  // Toggle visibility of submenus when clicking toggle
   };
 
-  // Handle dropdown toggle
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  useEffect(() => {
-    // Set initial screen size detection
-    const updateWindowSize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    // Call the function on window resize
-    updateWindowSize();
-
-    // Attach the resize event listener
-    window.addEventListener('resize', updateWindowSize);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', updateWindowSize);
-    };
-  }, []);
-
+  // Handle scroll-based transparency for navbar
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.getElementById('navbar');
-      if (!navbar) return;
+      const currentScrollY = window.scrollY;
 
-      // Simplify transparency logic
-      const shouldBeTransparent = 
-        isVideoSection || 
-        pathname === "/" || 
-        window.scrollY === 0;
-
-      if (shouldBeTransparent) {
-        navbar.classList.add('bg-transparent');
-        navbar.classList.remove('bg-black');
-        setIsTransparent(true);
+      // Handle navbar visibility on scroll
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setIsNavbarVisible(false);  // Hide navbar
       } else {
+        // Scrolling up
+        setIsNavbarVisible(true);  // Show navbar
+      }
+      setLastScrollY(currentScrollY);
+
+      // Set navbar background based on pathname
+      if (pathname === '/') {
+        setIsTransparent(true);  // Transparent background for homepage
+      } else {
+        setIsTransparent(false);  // Solid background for other pages
+      }
+
+      // Set navbar background color logic
+      if (window.scrollY > 0 || !isTransparent) {
         navbar.classList.add('bg-black');
         navbar.classList.remove('bg-transparent');
-        setIsTransparent(false);
+      } else {
+        navbar.classList.add('bg-transparent');
+        navbar.classList.remove('bg-black');
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-    // Initial call to set correct background
-    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [pathname, isVideoSection]);
+  }, [lastScrollY, pathname, isTransparent]);
+
+  // Render Products Submenu
+  const renderProductsSubmenu = () => {
+    return (
+      <div className="space-y-2">
+        <Link href="#product1" className="block text-white p-2">Product 1</Link>
+        <Link href="#product2" className="block text-white p-2">Product 2</Link>
+        <Link href="#product3" className="block text-white p-2">Product 3</Link>
+      </div>
+    );
+  };
+
+  // Render Plans Submenu
+  const renderPlansSubmenu = () => {
+    return (
+      <div className="space-y-2">
+        <Link href="#plan1" className="block text-white p-2">Plan 1</Link>
+        <Link href="#plan2" className="block text-white p-2">Plan 2</Link>
+        <Link href="#plan3" className="block text-white p-2">Plan 3</Link>
+      </div>
+    );
+  };
+
+  // Render Price Submenu
+  const renderPriceSubmenu = () => {
+    return (
+      <div className="space-y-2">
+        <Link href="#price1" className="block text-white p-2">Price 1</Link>
+        <Link href="#price2" className="block text-white p-2">Price 2</Link>
+        <Link href="#price3" className="block text-white p-2">Price 3</Link>
+      </div>
+    );
+  };
 
   return (
     <nav
       id="navbar"
-      className={`fixed w-full top-0 left-0 z-50 transition-all ${
-        isTransparent ? 'bg-transparent' : 'bg-black'
-      } pointer-events-auto`}
+      className={`fixed w-full top-0 left-0 z-50 transition-transform ease-in-out ${
+        isNavbarVisible ? 'translate-y-0' : '-translate-y-[90px]'
+      } pointer-events-auto ${isTransparent ? 'bg-transparent' : 'bg-black'}`}
       style={{
-        backgroundImage: isMobile && !isTransparent ? 'url(/uploads/bgImage.png)' : 'none',
+        backgroundImage: !isTransparent ? 'bg-black' : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        transitionDuration: '0.3s',  // Adding smooth transition
       }}
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */}
         <div className="relative h-12 w-32">
-          <Link href="/" legacyBehavior>
-            <a>
-              <Image
-                src="/uploads/logo.webp"
-                width={150}
-                height={60}
-                className="h-8"
-                layout="intrinsic"
-                objectFit="contain"
-                alt="Logo"
-              />
-            </a>
+          <Link href="/">
+            <Image
+              src="/uploads/logo.webp"
+              width={150}
+              height={60}
+              className="h-8"
+              layout="intrinsic"
+              objectFit="contain"
+              alt="Logo"
+            />
           </Link>
         </div>
 
@@ -134,82 +156,78 @@ const Navbar = ({ isVideoSection }) => {
         >
           <ul className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-6">
             <li>
-              <Link href="#about-us" legacyBehavior>
-                <a className="text-white uppercase tracking-wide">About Us</a>
+              <Link href="#about-us" className="text-white uppercase tracking-wide">
+                About Us
               </Link>
             </li>
             <li>
-              <Link href="#products" legacyBehavior>
-                <a className="text-white uppercase tracking-wide">Products</a>
+              <Link href="#products" className="text-white uppercase tracking-wide">
+                Products
               </Link>
-            </li>
-            <li>
-              <Link href="#plans" legacyBehavior>
-                <a className="text-white uppercase tracking-wide">Plans</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/location-map" legacyBehavior>
-                <a className="text-white uppercase tracking-wide">Location Map</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/price" legacyBehavior>
-                <a className="text-white uppercase tracking-wide">Price</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/amenities" legacyBehavior>
-                <a className="text-white uppercase tracking-wide">Amenities</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/gallery" legacyBehavior>
-                <a className="text-white uppercase tracking-wide">Gallery</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="#contact-us" legacyBehavior>
-                <a className="text-white uppercase tracking-wide">Contact Us</a>
-              </Link>
-            </li>
-            <li className="relative">
-              <div
-                className="text-white uppercase tracking-wide cursor-pointer"
-                onClick={toggleDropdown}
-              >
-                <Image
-                  src="/uploads/togle.png"
-                  alt="Toggle"
-                  className="w-8 h-8"
-                  layout="intrinsic"
-                  width={50}
-                  height={40}
-                />
-              </div>
-              {isDropdownOpen && (
-                <ul className="absolute bg-gray-800 text-white mt-2 p-4 rounded-lg shadow-lg right-0">
-                  <li className="py-1">
-                    <Link href="#submenu-1" legacyBehavior>
-                      <a>Submenu 1</a>
-                    </Link>
-                  </li>
-                  <li className="py-1">
-                    <Link href="#submenu-2" legacyBehavior>
-                      <a>Submenu 2</a>
-                    </Link>
-                  </li>
-                  <li className="py-1">
-                    <Link href="#submenu-3" legacyBehavior>
-                      <a>Submenu 3</a>
-                    </Link>
-                  </li>
-                </ul>
+              {/* Render Products submenu if toggled */}
+              {areSubmenusVisible && (
+                <div className="bg-black text-white p-2 mt-2 rounded-md">
+                  {renderProductsSubmenu()}
+                </div>
               )}
+            </li>
+            <li>
+              <Link href="/plans" className="text-white uppercase tracking-wide">
+                Plans
+              </Link>
+              {/* Render Plans submenu if toggled */}
+              {areSubmenusVisible && (
+                <div className="bg-black text-white p-2 mt-2 rounded-md">
+                  {renderPlansSubmenu()}
+                </div>
+              )}
+            </li>
+            <li>
+              <Link href="/location-map" className="text-white uppercase tracking-wide">
+                Location Map
+              </Link>
+            </li>
+            <li>
+              <Link href="/price" className="text-white uppercase tracking-wide">
+                Price
+              </Link>
+              {/* Render Price submenu if toggled */}
+              {areSubmenusVisible && (
+                <div className="bg-black text-white p-2 mt-2 rounded-md">
+                  {renderPriceSubmenu()}
+                </div>
+              )}
+            </li>
+            <li>
+              <Link href="/amenities" className="text-white uppercase tracking-wide">
+                Amenities
+              </Link>
+            </li>
+            <li>
+              <Link href="/gallery" className="text-white uppercase tracking-wide">
+                Gallery
+              </Link>
+            </li>
+            <li>
+              <Link href="#contact-us" className="text-white uppercase tracking-wide">
+                Contact Us
+              </Link>
+            </li>
+            <li>
+              <Image
+                onClick={toggleMenu}
+                src="/uploads/Vector5.png" // Path to your image in the public directory
+                alt="Toggle Image" // It's important to provide an alt text for accessibility
+                width={50} // Define the width of the image
+                height={50} // Define the height of the image
+              />
             </li>
           </ul>
         </div>
       </div>
+
+      {/* Conditionally render NavbarBottomLinks only on the Price page */}
+      {pathname === '/price' && <NavbarBottomLinks />}
     </nav>
   );
 };
