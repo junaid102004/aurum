@@ -41,11 +41,11 @@ const StatisticsSection = () => {
       // Incrementing number3 (up to 10 million)
       const interval3 = setInterval(() => {
         setNumber3(prev => {
-          if (prev < 10000000) {
-            return prev + 100000;  // Increment by 100k
+          if (prev < 10) {
+            return prev + 1;  // Increment by 100k
           }
           clearInterval(interval3);
-          return 10000000;
+          return 10;
         });
       }, 50);
 

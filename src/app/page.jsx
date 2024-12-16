@@ -1,43 +1,52 @@
-// Page.js
 "use client";
-import React, { useState } from "react";
-// import Navbar from "../components/Navbar";
-// import VideoBackground from "../components/VideoBackground";
-// import Footer from "../components/Footer";
-// import BrochureSection from "../components/brouchureSection";
-// import AboutUs from "../about-us/page";
-// import KeyHighlights from "../components/highlights";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/navbar";
 import VideoBackground from "./components/videobackground";
 import Footer from "./components/footer";
 import BrochureSection from "./components/brouchureSection";
 import AboutUs from "./about-us/page";
 import KeyHighlights from "./components/highlights";
-// import Banner from "./components/PoductBanner";
 import ProductsSection from "./components/ProductSection.jsx";
 import ChatIcon from "./components/icon/ChatIcon";
-
+import MobileNavbar from "./components/MobileNav/MobileNavbar";
+import EnquiryForm from "./components/EnquiryForm";
+import TestimonialSection from "./components/Testimonials";
 const Page = () => {
-  const [isVideoSection, setIsVideoSection] = useState(false); // State to control navbar transparency
+  const [isVideoSection, setIsVideoSection] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const updateWindowSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    updateWindowSize(); // Initial check
+    window.addEventListener('resize', updateWindowSize);
+
+    return () => {
+      window.removeEventListener('resize', updateWindowSize);
+    };
+  }, []);
 
   return (
     <div>
-      {/* Passing isVideoSection to Navbar to control its background */}
-      <Navbar isVideoSection={isVideoSection} />
+      {/* Conditionally render the MobileNavbar on mobile */}
+      {isMobile ? (
+        <MobileNavbar isVideoSection={isVideoSection} />
+      ) : (
+        <Navbar isVideoSection={isVideoSection} />
+      )}
 
       {/* Video background that triggers navbar transparency */}
       <VideoBackground setIsVideoSection={setIsVideoSection} />
 
-      {/* <main className="relative z-30 text-white py-10 px-5">
-        <h1>Welcome to Our Website!</h1>
-        <p>Here is some content on the homepage.</p>
-      </main> */}
       <AboutUs />
-      <ChatIcon/>
+      <ChatIcon />
       <BrochureSection />
       <KeyHighlights />
-      <ProductsSection/>
-      
+      <ProductsSection />
+      <EnquiryForm/>
+<TestimonialSection/>
       {/* Footer */}
       <Footer />
     </div>

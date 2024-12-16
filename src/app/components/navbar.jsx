@@ -7,10 +7,10 @@ import { usePathname } from 'next/navigation';
 
 const Navbar = ({ isVideoSection }) => {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false); // State for mobile menu toggle
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown toggle
-  const [isTransparent, setIsTransparent] = useState(false); // State for navbar transparency
-  const [isMobile, setIsMobile] = useState(false); // State to track if the screen size is mobile
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isTransparent, setIsTransparent] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Handle mobile menu toggle
   const toggleMenu = () => {
@@ -25,7 +25,7 @@ const Navbar = ({ isVideoSection }) => {
   useEffect(() => {
     // Set initial screen size detection
     const updateWindowSize = () => {
-      setIsMobile(window.innerWidth < 768); // Adjust based on your mobile screen size breakpoint
+      setIsMobile(window.innerWidth < 768);
     };
 
     // Call the function on window resize
@@ -41,46 +41,35 @@ const Navbar = ({ isVideoSection }) => {
   }, []);
 
   useEffect(() => {
-    // Handle scroll to make the navbar stay fixed
     const handleScroll = () => {
       const navbar = document.getElementById('navbar');
-      if (!navbar) return; // Prevent errors if navbar is not found
+      if (!navbar) return;
 
-      const videoSection = document.getElementById('video-section'); // Assuming the video section has this ID
-      if (videoSection) {
-        const videoSectionTop = videoSection.getBoundingClientRect().top;
-        const videoSectionHeight = videoSection.offsetHeight;
+      // Simplify transparency logic
+      const shouldBeTransparent = 
+        isVideoSection || 
+        pathname === "/" || 
+        window.scrollY === 0;
 
-        // If the video section is visible, make the navbar transparent
-        if (videoSectionTop <= 0 && videoSectionTop + videoSectionHeight > 0) {
-          setIsTransparent(true);
-        } else {
-          setIsTransparent(false);
-        }
-      }
-
-      // When the pathname is "/", make the navbar transparent by default (on homepage)
-      if (pathname === "/") {
-        setIsTransparent(true);
-      } else {
-        setIsTransparent(false);
-      }
-
-      // When scrolling, add or remove background for navbar
-      if (window.scrollY > 0 || isTransparent) {
-        navbar.classList.add('bg-black');
-        navbar.classList.remove('bg-transparent');
-      } else {
+      if (shouldBeTransparent) {
         navbar.classList.add('bg-transparent');
         navbar.classList.remove('bg-black');
+        setIsTransparent(true);
+      } else {
+        navbar.classList.add('bg-black');
+        navbar.classList.remove('bg-transparent');
+        setIsTransparent(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Initial call to set correct background
+    handleScroll();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [pathname, isTransparent]);
+  }, [pathname, isVideoSection]);
 
   return (
     <nav
@@ -89,9 +78,9 @@ const Navbar = ({ isVideoSection }) => {
         isTransparent ? 'bg-transparent' : 'bg-black'
       } pointer-events-auto`}
       style={{
-        backgroundImage: isMobile && !isTransparent ? 'url(/uploads/bgImage.png)' : 'none', // Set background for mobile screens, unless it's transparent due to video
-        backgroundSize: 'cover', // Ensure the image covers the whole navbar
-        backgroundPosition: 'center', // Center the background image
+        backgroundImage: isMobile && !isTransparent ? 'url(/uploads/bgImage.png)' : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -216,10 +205,7 @@ const Navbar = ({ isVideoSection }) => {
                     </Link>
                   </li>
                 </ul>
-           
-           
-           
-           )}
+              )}
             </li>
           </ul>
         </div>

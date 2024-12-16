@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import AvatarWithCircle from '../Avatar';
 
 const ChatIcon = () => {
   const [showChat, setShowChat] = useState(false);
-
   const toggleChat = () => {
     setShowChat((prevState) => !prevState);
   };
@@ -15,6 +15,8 @@ const ChatIcon = () => {
           className="opacity-100 bg-[#ffffffcb] absolute bottom-[100%] right-0 z-50 cursor-pointer size-[25px] border-[0.0001px] border-gray-400 rounded-full flex justify-center items-center p-1"
           onClick={toggleChat}
         >
+          toggle
+          <AvatarWithCircle/>
           <svg
             stroke="currentColor"
             fill="none"

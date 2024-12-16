@@ -38,8 +38,16 @@ const Downloads = () => {
           </div>
         </div>
         <div className="animate-moveUpDown block lg:hidden w-[90%] sm:w-[70%] mx-auto h-[230px] bxxs:h-[250px] cxs:h-[300px] md:h-[400px] relative z-40 translate-y-[-35%] rounded-xl overflow-hidden">
-          <img alt="" loading="lazy" decoding="async" data-nimg="fill" className="object-contain" style={{ position: 'absolute', height: '100%', width: '100%' }} sizes="100vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdownload-section-smallscreen.eb68d059.webp&amp;w=640&amp;q=75 640w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdownload-section-smallscreen.eb68d059.webp&amp;w=750&amp;q=75 750w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdownload-section-smallscreen.eb68d059.webp&amp;w=828&amp;q=75 828w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdownload-section-smallscreen.eb68d059.webp&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdownload-section-smallscreen.eb68d059.webp&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdownload-section-smallscreen.eb68d059.webp&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdownload-section-smallscreen.eb68d059.webp&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdownload-section-smallscreen.eb68d059.webp&amp;w=3840&amp;q=75 3840w" src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdownload-section-smallscreen.eb68d059.webp&amp;w=3840&amp;q=75" />
-        </div>
+        <img 
+  alt="" 
+  loading="lazy" 
+  decoding="async" 
+  data-nimg="fill" 
+  className="object-contain" 
+  style={{ position: 'absolute', height: '100%', width: '100%' }} 
+  sizes="100vw" 
+  src="/uploads/gd.png" 
+/>        </div>
       </div>
     </section>
   );
