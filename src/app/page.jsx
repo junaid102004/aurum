@@ -12,6 +12,10 @@ import MobileNavbar from "./components/MobileNav/MobileNavbar";
 import EnquiryForm from "./components/EnquiryForm";
 import TestimonialSection from "./components/Testimonials";
 import { usePathname } from "next/navigation";
+import MapSection from "./components/MapSection";
+import ContactUs from "./components/Contact-us";
+import GetInTouch from "./components/GetInTouch";
+import Downloads from "./components/Downloads";
 
 const Page = () => {
   const pathname = usePathname();
@@ -47,7 +51,10 @@ const Page = () => {
       <BrochureSection />
       <KeyHighlights />
       <ProductsSection />
-      <EnquiryForm/>
+      <Downloads/>
+      <MapSection/>
+      <ContactUs/>
+      <GetInTouch/>
       {/* Footer */}
       <Footer />
     </div>

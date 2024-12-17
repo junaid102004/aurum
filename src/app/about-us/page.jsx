@@ -1,8 +1,20 @@
 // AboutUs.js
+"use client";
 import Image from 'next/image';
 import StatisticsSection from '../components/statistcics';
+import { useState } from 'react';
 
 const AboutUs = () => {
+  const [read,setRead]=useState(false);
+  const readmore=()=>{
+    if(read){
+      setRead(false)
+
+    }else{
+      setRead(true);
+
+    }
+  }
   return (
     <section id="about-us" className="section-gap scroll-mt-24">
       <div className="bg-[#0b0b0b]">
@@ -26,12 +38,21 @@ const AboutUs = () => {
               </p>
               <p className="capitalize tracking-wide font-supera500 text-[14px] cxs:text-[15px] md:text-[16px] lg:text-[17px] 3xl:text-[19px] leading-relaxed text-justify text-[#fff]">
                 <strong className="font-supera300">Medallion Aurum Apartments</strong> are thoughtfully designed to provide maximum space utilization, contemporary aesthetics, and a seamless blend of functionality and beauty. With a keen focus on quality, convenience, and luxury, we offer a variety of high-end apartments that cater to diverse needs, ensuring comfort and satisfaction for every resident.
+                {read ? (
+    <>
+      <br />
+      At Medallion Aurum, we prioritize your comfort and well-being by providing a host of state-of-the-art amenities, including landscaped green spaces, fitness centers, dedicated recreational zones, and 24/7 security. Our commitment to excellence makes us stand apart as Mohali's premier choice for luxury apartment living.
+      <br />
+      Join us at Medallion Aurum Mohali and elevate your lifestyle in a community built on trust, luxury, and comfort. Experience the epitome of modern living – welcome home.
+    </>
+  ) : null}
               </p>
               <button
+              onClick={readmore}
                 aria-label="read-more"
                 className="md:w-[167px] md:h-[38px] md:flex justify-center items-center font-supera600 capitalize md:uppercase text-[16px] sm:text-[20px] md:text-[24px] text-[#F9A221] md:text-[#000] rounded-md bg-right md:bg-[url('/uploads/bgimage.png')]  cursor-pointer text-justify tracking-wide"
               >
-                Read more
+               {!read?`Read more`:"Read Less"} 
               </button>
             </div>
           </div>
@@ -41,5 +62,5 @@ const AboutUs = () => {
     </section>
   );
 };
-
+ 
 export default AboutUs;

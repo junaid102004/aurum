@@ -11,6 +11,7 @@ import Property from '../components/Property.jsx';
 import ContactUs from '../components/Contact-us.jsx';
 import { motion } from 'framer-motion'; // For animation
 import MobileNavbar from '../components/MobileNav/MobileNavbar.jsx';
+import MapSection from '../components/MapSection.jsx';
 
 export default function Home() {
   const [isVideoSection, setIsVideoSection] = useState(false);
@@ -130,6 +131,7 @@ export default function Home() {
 
         <Property />
         <FAQs />
+<MapSection/>
         <ContactUs />
         <Downloads />
         <Footer />

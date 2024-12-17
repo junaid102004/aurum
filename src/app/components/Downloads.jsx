@@ -3,7 +3,7 @@ import React from 'react';
 const Downloads = () => {
   return (
     <section id="download" className="section-gap scroll-mt-24 h-[450px] xs:h-[500px] cxs:h-[550px] md:h-[610px] cmd:h-[680px] lg:h-auto">
-      <div className="w-full relative h-[330px] xs:h-[350px] cxs:h-[380px] cmd:h-[450px] lg:h-[570px] bg-[#121212] lg:bg-[url('/uploads/bgimage.png')]  bg-no-repeat bg-right bg-cover 3xl:bg-contain sm:bg-[length:80%_100%] md:bg-[length:80%_100%] lg:bg-[length:80%_100%] xl:bg-[length:75%_100%] 2xl:bg-[length:78%_100%]">
+      <div className="w-full relative h-[330px] xs:h-[350px] cxs:h-[380px] cmd:h-[450px] lg:h-[570px] bg-[#121212] lg:bg-[url('/uploads/Groupbg.png')]  bg-no-repeat bg-right bg-cover 3xl:bg-contain sm:bg-[length:80%_100%] md:bg-[length:80%_100%] lg:bg-[length:80%_100%] xl:bg-[length:75%_100%] 2xl:bg-[length:78%_100%]">
         <div className="hidden lg:block w-full h-full bg-[#00000096] sm:bg-transparent absolute top-0 left-0 z-20 sm:z-0"></div>
         <div className="2xl:container h-full pl-0 lg:pl-10 3xl:pl-0 mx-auto flex flex-col gap-y-10 lg:gap-y-0 justify-start lg:justify-evenly relative sm:z-10">
           <div className="sm:px-0 relative z-30">

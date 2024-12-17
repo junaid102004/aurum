@@ -1,11 +1,9 @@
-// VideoBackground.js
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 const VideoBackground = () => {
-
   return (
     <div className="relative w-full h-screen">
       <video
@@ -17,6 +15,8 @@ const VideoBackground = () => {
         playsInline
         disablePictureInPicture
         controlsList="nodownload nofullscreen noremoteplayback"
+        muted
+        autoPlay
       >
         Your browser does not support the video tag.
       </video>

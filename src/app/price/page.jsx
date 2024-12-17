@@ -14,6 +14,8 @@ import MobileNavbar from '../components/MobileNav/MobileNavbar.jsx';
 import PaymentStructure from '../components/Payment/PaymentStructure.jsx';
 import NavbarBottomLinks from '../components/Payment/NavBottoms.jsx';
 import Image from 'next/image';
+import GetInTouch from '../components/GetInTouch.jsx';
+import { FaQq } from 'react-icons/fa';
 
 const Page = () => {
   const [isVideoSection, setIsVideoSection] = useState(false);
@@ -221,6 +223,12 @@ const Page = () => {
       </section>
 
       <PaymentStructure />
+      <GetInTouch/>
+      <Property/>
+      <FAQs/>
+      <ContactUs/>
+      <Downloads/>
+      <Footer/>
     </div>
   );
 };

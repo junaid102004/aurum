@@ -2,6 +2,7 @@ import React from 'react'
 import UnitPlan from '../components/plans/UnitPlan'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+import GetInTouch from '../components/GetInTouch'
 const page = () => {
   return (
     <div>
@@ -20,6 +21,8 @@ const page = () => {
         </div>
 
         <UnitPlan/>
+        <GetInTouch/>
+        <Footer/>
     </div>
   )
 }

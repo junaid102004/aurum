@@ -10,12 +10,16 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "cors": "^2.8.5",
+    "flag-icon-css": "^4.1.7",
     "framer-motion": "^11.14.1",
     "next": "15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
     "react-intersection-observer": "^9.13.1",
+    "react-phone-input-2": "^2.15.1",
+    "react-select": "^5.9.0",
     "react-spring": "^9.7.5",
     "swiper": "^11.1.15"
   },
