@@ -244,11 +244,14 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+
+        {/* Conditionally render NavbarBottomLinks at the bottom */}
+        {pathname === '/price' && <NavbarBottomLinks />}
+        {pathname === '/plans' && <BottomPlans />}
+      {pathname === '/gallery' && <GalleryBottom />}
       </nav>
 
-      {pathname === '/price' && <NavbarBottomLinks />}
-      {pathname === '/plans' && <BottomPlans />}
-      {pathname === '/gallery' && <GalleryBottom />}
+      
     </>
   );
 };
