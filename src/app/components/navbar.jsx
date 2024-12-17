@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import NavbarBottomLinks from './Payment/NavBottoms'; // Import NavbarBottomLinks component
+import BottomPlans from './plans/BottomsPlans';
+import GalleryBottom from '../gallery/GalleryBottom';
 
 const Navbar = () => {
   const pathname = usePathname();  // Get current pathname from Next.js app router
@@ -156,12 +158,12 @@ const Navbar = () => {
         >
           <ul className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-6">
             <li>
-              <Link href="#about-us" className="text-white uppercase tracking-wide">
+              <Link href="/#about-us" className="text-white uppercase tracking-wide">
                 About Us
               </Link>
             </li>
             <li>
-              <Link href="#products" className="text-white uppercase tracking-wide">
+              <Link href="/#products" className="text-white uppercase tracking-wide">
                 Products
               </Link>
               {/* Render Products submenu if toggled */}
@@ -228,8 +230,12 @@ const Navbar = () => {
 
       {/* Conditionally render NavbarBottomLinks only on the Price page */}
       {pathname === '/price' && <NavbarBottomLinks />}
+     {pathname === '/plans' && <BottomPlans />}
+     {pathname === '/gallery' && <GalleryBottom />}
     </nav>
+    
   );
+  
 };
 
 export default Navbar;
