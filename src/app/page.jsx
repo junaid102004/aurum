@@ -47,7 +47,7 @@ const Page = () => {
       <VideoBackground />
 
       <AboutUs />
-      <ChatIcon />
+     <ChatIcon/>
       <BrochureSection />
       <KeyHighlights />
       <ProductsSection />
