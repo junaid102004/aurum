@@ -3,13 +3,18 @@ import Image from 'next/image';
 
 const ChatIcon = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleClose = () => {
-    setIsOpen(false);
+    setIsOpen(false);  // Close the chat icon
   };
 
   const handleOpen = () => {
-    setIsOpen(true);
+    setIsOpen(true);  // Open the chat icon again
+  };
+
+  const toggleExpanded = () => {
+    setIsExpanded(!isExpanded);  // Toggle the expanded view
   };
 
   return (
@@ -22,7 +27,7 @@ const ChatIcon = () => {
           }
           50% {
             transform: scale(1.2);
-            opacity: 0.7; /* Animation on the circle */
+            opacity: 0.7;
           }
           100% {
             transform: scale(1);
@@ -30,48 +35,163 @@ const ChatIcon = () => {
           }
         }
 
-        .chatIcon {
-          animation: scaleOpacity 3s infinite ease-in-out; /* Apply animation on the circle */
+        .circle {
+          animation: scaleOpacity 3s infinite ease-in-out;
         }
 
         .chatIconImage {
           position: absolute;
-          width: 60px; 
-          height: 60px; 
-          object-fit: cover; /* Ensures the image stays inside the circle */
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+        }
+
+        .contactForm {
+          position: absolute;
+          bottom: 70px;
+          right: 30px;
+          background-color: white;
+          width: 300px;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .contactForm.hidden {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        .contactForm .agentInfo {
+          margin-bottom: 15px; /* Adds space between agent info and buttons */
+        }
+
+        .contactForm .buttonRow {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+          margin-top: 10px; /* Add spacing between the button row and the other elements */
+        }
+
+        .contactForm button {
+          margin-top: 10px; /* Adds margin between the buttons */
+        }
+
+        .contactForm h5 {
+          margin-bottom: 20px; /* Adds space below the heading */
+        }
+
+        .contactForm .closeButton {
+          position: absolute;
+          top: -25px;
+          right: -25px;
+          background-color: white;
+          color: black;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          cursor: pointer;
+        }
+
+        .flex {
+          display: flex;
+          align-items: center;
+        }
+
+        .ml-4 {
+          margin-left: 16px;
+        }
+
+        .cursor-pointer {
+          cursor: pointer;
         }
       `}</style>
 
       <div style={styles.chatIconWrapper}>
-        {isOpen && (
+        {!isExpanded && isOpen && (
           <>
             <div style={styles.closeButton} onClick={handleClose}>X</div>
             <div style={styles.textAbove}>Need Immediate Assistance</div>
 
-            {/* Circle with animation */}
             <div style={styles.circle}>
               <Image
                 src="/uploads/Ellipse 83.png"
                 width={60}
                 height={60}
-                alt="icon"
+                alt="chat icon"
                 style={styles.chatIcon}
-                className="chatIconImage" // Ensure the image is inside the circle
+                onClick={toggleExpanded}
+                className="chatIconImage"
               />
             </div>
 
             <div style={styles.textBelow}>Pawan Kumar</div>
           </>
         )}
+
         {!isOpen && (
           <div style={styles.closedIcon} onClick={handleOpen}>
-            {/* Small icon when closed, click to open */}
             <Image
               src="/uploads/Ellipse 83.png"
               width={30}
               height={30}
-              alt="icon"
+              alt="chat icon"
             />
+          </div>
+        )}
+
+        {isExpanded && (
+          <div className={`contactForm ${!isExpanded ? 'hidden' : ''}`}>
+            <div className="closeButton" onClick={toggleExpanded}>
+              X
+            </div>
+            <h5 className="text-center">Need Immediate Assistance?</h5>
+            <div className="flex agentInfo">
+              <div className="relative z-50 cursor-pointer rounded-full">
+                <Image
+                  alt="agent-img"
+                  width={60}
+                  height={61}
+                  src="/uploads/Ellipse 83.png"
+                  className="rounded-full"
+                />
+              </div>
+              <div className="ml-4">
+                <strong className="text-black">Pawan Kumar</strong>
+                <p className="text-[#4c4c4c]">Realty Nivesh</p>
+              </div>
+            </div>
+            <div className="cursor-pointer">
+              <button
+                className="w-full py-[7px] bg-[url('/uploads/bgimage.png')] bg-blue-500 text-white uppercase"
+                onClick={() => alert('Contacting...')}
+              >
+                Contact Now
+              </button>
+            </div>
+            <div className="buttonRow">
+              <button
+                className="cursor-pointer flex items-center pl-[10px] w-1/2 border-[1.5px] border-[#000] rounded-lg py-1.5"
+                onClick={() => alert('Calling...')}
+              >
+                <Image width={16} height={14} alt="call" src={'/uploads/gr2.png'} />
+                <span>Call Now</span>
+              </button>
+              <button
+                className="cursor-pointer flex items-center pl-[10px] w-1/2 border-[1.5px] border-[#000] rounded-lg py-1.5"
+                onClick={() => alert('Opening Whatsapp...')}
+              >
+                <Image width={16} height={14} alt="whatsapp" src={'/uploads/Vector(6).png'} />
+                <span>Whatsapp</span>
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -82,7 +202,7 @@ const ChatIcon = () => {
 const styles = {
   chatIconWrapper: {
     position: 'fixed',
-    bottom: '30px',
+    bottom: '60px',
     right: '30px',
     display: 'flex',
     alignItems: 'center',
@@ -90,7 +210,6 @@ const styles = {
     zIndex: 999,
   },
   chatIcon: {
-   
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',
@@ -99,10 +218,10 @@ const styles = {
     zIndex: 999,
   },
   circle: {
-    width: '60px', // Circle size
-    height: '60px', // Circle size
-    backgroundColor: '#a4591a', // Circle color
-    borderRadius: '50%', // Makes it a circle
+    width: '60px',
+    height: '60px',
+    backgroundColor: '#a4591a',
+    borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -110,7 +229,7 @@ const styles = {
   },
   closeButton: {
     position: 'absolute',
-    top: '-25px',
+    top: '-105px',
     right: '5px',
     backgroundColor: 'white',
     color: 'black',
@@ -125,7 +244,7 @@ const styles = {
   },
   textAbove: {
     position: 'absolute',
-    top: '-120px',
+    top: '-80px',
     fontSize: '12px',
     color: 'white',
     textAlign: 'center',
@@ -138,12 +257,12 @@ const styles = {
     textAlign: 'center',
   },
   closedIcon: {
-    width: '30px', // Small size when closed
+    width: '30px',
     height: '30px',
     position: 'fixed',
     bottom: '10px',
     right: '10px',
-    backgroundColor: 'orange', // Same color as circle
+    backgroundColor: 'orange',
     borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',

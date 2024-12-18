@@ -5,6 +5,9 @@ import 'swiper/css';
 import UnitPlanImages from './UnitPlanImages';
 import UnitPlan3DView from './UnitPlan3DView';
 import UnitPlan4Bhk from './unitPLan4bhk';
+import Footer from '../footer';
+import ContactUs from '../newCom';
+import MapSection from '../MapSection';
 
 const UnitPlan = () => {
   const [selectedUnit, setSelectedUnit] = useState('3+1 BHK');  // State to manage the selected unit
@@ -36,7 +39,7 @@ const UnitPlan = () => {
       </p>
 
       {/* Unit Selection */}
-      <div className="w-full flex-col sm:flex-row flex justify-between items-start bxxs:items-center lg:px-5">
+      <div className="w-full flex-col sm:flex-row flex justify-between items-start bxxs:items-center lg:px-5 mb-5">
         <div className="pt-2 bxxs:pt-0 w-full sm:w-auto">
           <div className="w-full opacity-100 duration-500 relative z-20 flex self-start justify-between sm:justify-center items-center gap-1.5 xs:gap-3 md:gap-5 border-b-[2px] sm:border-none border-[#D9D9D9]">
             <div
@@ -97,6 +100,9 @@ const UnitPlan = () => {
           </SwiperSlide>
         )}
       </Swiper>
+    
+      <ContactUs/>
+      <MapSection/>
     </div>
   );
 };

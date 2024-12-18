@@ -1,15 +1,13 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function KeyHighlights() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const images = [
     {
-      src: "/uploads/AURUM-GATE-NIGHT-HIRES.png",
+      src: "/uploads/image88.png",
       alt: "Gate Night View",
       title: "Gate Night View",
       description: "A magnificent night view of the Aurum gate, showcasing modern architecture."
@@ -33,7 +31,7 @@ export default function KeyHighlights() {
       description: "A luxurious poolside area designed for leisure and comfort."
     },
     {
-      src: "/uploads/high4.png",
+      src: "/uploads/high.png",
       alt: "Pool View",
       title: "Pool View",
       description: "A luxurious poolside area designed for leisure and comfort."
@@ -83,14 +81,20 @@ export default function KeyHighlights() {
             </motion.div>
 
             {/* Image with black overlay for dimming effect */}
-            <div className="absolute inset-0 w-full h-full bg-black bg-opacity-30 z-0" />
+            <motion.div
+              className="absolute inset-0 w-full h-full bg-black bg-opacity-50 z-0"
+              initial={{ opacity: 0.5 }}
+              animate={{ opacity: activeIndex === index ? 0 : 0.5 }}
+              transition={{ opacity: { duration: 0.5 } }}
+            />
+
             <Image
               src={image.src}
               fill
               alt={image.alt}
               quality={100}
-              objectFit="cover" 
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-500 z-0"
+              objectFit="cover"
+              className="absolute inset-0 w-full h-full bg-black bg-opacity-50 object-cover transition-all duration-500 z-0"
             />
 
             {/* Show the description when the image is active */}

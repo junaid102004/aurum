@@ -16,6 +16,8 @@ import MapSection from "./components/MapSection";
 import ContactUs from "./components/Contact-us";
 import GetInTouch from "./components/GetInTouch";
 import Downloads from "./components/Downloads";
+import FloatingButton from "./components/FloatingButton";
+import ProjectStatus from "./components/ProjectStatus";
 
 const Page = () => {
   const pathname = usePathname();
@@ -51,11 +53,13 @@ const Page = () => {
       <BrochureSection />
       <KeyHighlights />
       <ProductsSection />
+      {/* <ProjectStatus/> */}
       <Downloads/>
       <MapSection/>
       <ContactUs/>
       <GetInTouch/>
       {/* Footer */}
+      {/* <FloatingButton/> */}
       <Footer />
     </div>
   );
