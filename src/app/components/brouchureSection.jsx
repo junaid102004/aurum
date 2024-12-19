@@ -20,7 +20,7 @@ export default function BrochureSection() {
       <div className="2xl:container h-full mx-auto flex flex-col sm:flex-row gap-y-[60px] sm:gap-x-[60px] justify-center items-center px-5 xs:px-7 sm:px-10 lg:px-16 cmd:pb-[45px] relative z-30 flex-grow pb-10">
         
         {/* Left Section */}
-        <div className="flex flex-col items-start w-full sm:w-1/2 lg:w-1/3 sm:items-start lg:items-start sm:ml-[-40px]"> {/* Adjusted to move the content to the left */}
+        <div className="flex flex-col items-start mx-auto w-full sm:w-1/2 lg:w-1/3 sm:items-start lg:items-start sm:ml-[-40px]"> {/* Adjusted to move the content to the left */}
           <h3 className="text-left sm:text-left cmd:text-left font-supera500 text-[27px] cxs:text-[32px] sm:text-[30px] lg:text-[35px] leading-[0.9] text-[#FFFFFF] uppercase flex flex-col items-start gap-x-2 sm:block">
             The pride of
             <span className="bg-[url('/uploads/bgimage.png')] tracking-wide sm:tracking-normal font-supera700 text-[60px] sm:text-[65px] lg:text-[80px] xl:text-[85px] text-transparent bg-clip-text bg-backgroud-theme-local bg-bottom"> Mohali</span>

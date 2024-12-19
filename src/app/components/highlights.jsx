@@ -59,13 +59,13 @@ export default function KeyHighlights() {
         </p>
       </div>
 
-      <div className="flex justify-center items-center gap-5">
+      <div className="flex justify-center items-center ">
         {images.map((image, index) => (
           <motion.div
             key={index}
             className="relative overflow-hidden cursor-pointer"
             onClick={() => handleExpand(index)}
-            style={{ height: "300px" }}
+            style={{ height: "450px" }}
             animate={{ width: activeIndex === index ? "60%" : "10%" }}
             initial={{ width: "10%" }}
             transition={{ duration: 0.5 }}
@@ -77,7 +77,7 @@ export default function KeyHighlights() {
               animate={{ opacity: activeIndex === index ? 1 : 0.5 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="text-lg font-semibold">{image.title}</h3>
+              <h3 className="text-lg font-supera600">{image.title}</h3>
             </motion.div>
 
             {/* Image with black overlay for dimming effect */}
@@ -115,6 +115,19 @@ export default function KeyHighlights() {
           </motion.div>
         ))}
       </div>
+      <div className="hidden md:flex gap-x-10">
+      <div className="flex flex-col brder-2 border-black whitespace-nowrap">
+        <h1 className="text-black  text-3xl sm:text-2xl lg:4xl ">A Few Words About</h1>
+ <strong className="font-supera700 text-[26px] cmd:text-[30px] xl:text-[34px] 2xl:text-[38px] text-[#000] capitalize text-transparent bg-clip-text      bg-right-bottom  bg-coverbg bg-no-repeat bg-[url('/uploads/bgimage.png')]">
+ The Medallion Aurum
+ </strong>
+
+        </div>
+        <p className="mt-2">
+        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+        </p>
+      </div>
+     
     </section>
   );
 }

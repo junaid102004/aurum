@@ -35,7 +35,7 @@ const ContactUs = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="font-supera500 flex flex-col bxxs:flex-row cxs:flex-col gap-x-6 tracking-wide text-[13.5px] xs:text-[18px] cxs:text-[15px] lg:text-[18px] xl:text-[20px] text-[#fff]">
+              <div className="font-supera500 flex flex-col text-[#fff]">
                 <button aria-label="call-1">+91 89680 66698</button>
                 <button aria-label="call-2">+91 99880 10405</button>
               </div>

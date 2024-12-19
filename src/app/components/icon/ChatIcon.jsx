@@ -170,7 +170,7 @@ const ChatIcon = () => {
             </div>
             <div className="cursor-pointer">
               <button
-                className="w-full py-[7px] bg-[url('/uploads/bgimage.png')] bg-blue-500 text-white uppercase"
+                className="w-full bg-no-repeat bg-cover bg-right-bottom text-[13px]  font-supera700 text-white uppercase py-[7px] bg-[url('/uploads/bgimage.png')] bg-blue-500 text-white uppercase"
                 onClick={() => alert('Contacting...')}
               >
                 Contact Now
@@ -202,8 +202,8 @@ const ChatIcon = () => {
 const styles = {
   chatIconWrapper: {
     position: 'fixed',
-    bottom: '60px',
-    right: '30px',
+    bottom: '100px',
+    right: '100px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -211,6 +211,8 @@ const styles = {
   },
   chatIcon: {
     position: 'relative',
+    height:"64",
+    width:"65",
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -229,13 +231,13 @@ const styles = {
   },
   closeButton: {
     position: 'absolute',
-    top: '-105px',
-    right: '5px',
+    top: '-115px',
+    right: '-15px',
     backgroundColor: 'white',
     color: 'black',
     borderRadius: '50%',
-    width: '20px',
-    height: '20px',
+    width: '28px',
+    height: '25px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
