@@ -45,11 +45,10 @@ const Page = () => {
       )} */}
 {/* <Navbar isVideoSection={isVideoSection}/> */}
       {/* Video background that triggers navbar transparency */}
-      < Navbar/>
+     < Navbar/>
       <VideoBackground />
 
-      <AboutUs />
-     <ChatIcon/>
+       <AboutUs />
       <BrochureSection />
       <KeyHighlights />
       <ProductsSection />
@@ -60,7 +59,9 @@ const Page = () => {
       <GetInTouch/>
       {/* Footer */}
       {/* <FloatingButton/> */}
+      <ChatIcon/>
       <Footer />
+      
     </div>
   );
 };

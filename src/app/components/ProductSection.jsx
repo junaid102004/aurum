@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Image from 'next/image';
-import RotatingComponent from './Animations/RotateComponent';
+// import RotatingComponent from './Animations/RotateComponent';
 import LuxuryApartmentCard from './LuxuryApartmentCard';
+import RotateComponent from './RotateComponent';
 
 export default function ProductsSection() {
   const [selectedOption, setSelectedOption] = useState(1); // 1 for 3+1 BHK, 2 for 4+1 BHK
@@ -68,16 +69,17 @@ export default function ProductsSection() {
         {/* Image and Text Section (Flex container) */}
         <div className="flex w-full">
           {/* Image Section (65% width) */}
-          <div className="w-2/3 bg-[url('/uploads/bgimage.png')] bg-cover bg-no-repeat bg-center relative">
+        
             <Swiper
               spaceBetween={10}
               slidesPerView={1}
               onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
+              className="w-2/3 bg-cover bg-no-repeat bg-center relative"
             >
-              <RotatingComponent />
+             
               {selectedOption === 1 ? (
                 <SwiperSlide>
-                  <div className="relative">
+                  
                     <Image
                       src="/uploads/AURUM-GATE-NIGHT-HIRES.png"
                       width={1600}
@@ -96,7 +98,7 @@ export default function ProductsSection() {
                         </span>
                       </div>
                     )}
-                  </div>
+                  
                 </SwiperSlide>
               ) : (
                 <>
@@ -125,10 +127,11 @@ export default function ProductsSection() {
                 </>
               )}
             </Swiper>
-          </div>
+          
 
           {/* Text Section (35% width with black background) */}
           <div className="w-1/3 bg-black text-white p-4">
+          <RotateComponent/>
             <h1>luxury</h1>
           </div>
         </div>
